@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-
+import CrimeDataReducer from './Slices/CrimeDataSlice'
 export const store = () => {
   return configureStore({
     reducer: {
-      
+      data : CrimeDataReducer
     },
   })
 }
