@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '@/app/redux/Slices/CrimeDataSlice';
 import { useAppDispatch, useAppSelector } from '@/app/hook/hook';
+import Loading from './Loader/Loading';
 
 const availableLabels = [
   { label: 'Case Number', key: 'case_number' },
@@ -52,7 +53,7 @@ const TableComponent = () => {
   };
 
   if (status === 'loading') {
-    return <div className="p-4">Loading...</div>;
+    return <div className="flex justify-center items-center h-screen bg-white"><Loading/></div>;
   }
 
   if (error) {
@@ -70,7 +71,7 @@ const TableComponent = () => {
                 <label
                 key={label.key}
                 className={`flex items-center space-x-3 cursor-pointer ${selectedLabels.includes(label.key) ? 'text-blue-600' : 'text-gray-600'}`}
-                style={{ minWidth: '200px' }} // Adjust minWidth to control the number of items per row
+                style={{ minWidth: '200px' }} 
                 >
                 <input
                     type="checkbox"
